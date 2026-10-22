@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OOPSIBID - Auction Test</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 6px;
+            background: #198754;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #146c43;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .success {
+            display: block !important;
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .error {
+            display: block !important;
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .auction {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            background: #fafafa;
+        }
+
+        .auction strong {
+            color: #198754;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>OOPSIBID</h1>
+
+    <p class="subtitle">
+        Auction Creation Test
+    </p>
+
+
+    <!-- CREATE AUCTION -->
+
+    <div class="section">
+
+        <h2>Create Auction</h2>
+
+        <form id="auctionForm">
+
+            <label for="productId">
+                Product ID
+            </label>
+
+            <input
+                type="text"
+                id="productId"
+                placeholder="Enter Product ID"
+                required
+            >
+
+
+            <label for="sellerId">
+                Seller ID
+            </label>
+
+            <input
+                type="text"
+                id="sellerId"
+                placeholder="Enter Seller ID"
+                required
+            >
+
+
+            <label for="startingPrice">
+                Starting Price
+            </label>
+
+            <input
+                type="number"
+                id="startingPrice"
+                placeholder="Enter starting price"
+                min="1"
+                required
+            >
+
+
+            <button type="submit">
+                Create 24-Hour Auction
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- GET ALL AUCTIONS -->
+
+    <div class="section">
+
+        <h2>View Auctions</h2>
+
+        <button onclick="loadAuctions()">
+            Load All Auctions
+        </button>
+
+        <div id="auctionList"></div>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+    const auctionForm =
+        document.getElementById("auctionForm");
+
+    const result =
+        document.getElementById("result");
+
+    const auctionList =
+        document.getElementById("auctionList");
+
+
+    // ==============================
+    // CREATE AUCTION
+    // ==============================
+
+    auctionForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            const productId =
+                document.getElementById("productId").value.trim();
+
+            const sellerId =
+                document.getElementById("sellerId").value.trim();
+
+            const startingPrice =
+                Number(
+                    document.getElementById("startingPrice").value
+                );
+
+
+            const auctionData = {
+
+                productId: productId,
+
+                sellerId: sellerId,
+
+                startingPrice: startingPrice
+
+            };
+
+
+            result.className = "";
+
+            result.style.display = "none";
+
+            result.innerText = "Creating auction...";
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/auctions",
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify(auctionData)
+
+                    }
+                );
+
+
+                const data =
+                    await response.json();
+
+
+                if (response.ok) {
+
+                    result.className =
+                        "success";
+
+                    result.innerText =
+                        "Auction created successfully!\n\n"
+                        +
+                        JSON.stringify(
+                            data,
+                            null,
+                            2
+                        );
+
+                    auctionForm.reset();
+
+                } else {
+
+                    result.className =
+                        "error";
+
+                    result.innerText =
+                        "Auction creation failed:\n\n"
+                        +
+                        JSON.stringify(
+                            data,
+                            null,
+                            2
+                        );
+
+                }
+
+            } catch (error) {
+
+                result.className =
+                    "error";
+
+                result.innerText =
+                    "Unable to connect to server.";
+
+                console.error(error);
+
+            }
+
+        }
+    );
+
+
+    // ==============================
+    // LOAD AUCTIONS
+    // ==============================
+
+    async function loadAuctions() {
+
+        auctionList.innerHTML =
+            "Loading auctions...";
+
+
+        try {
+
+            const response =
+                await fetch("/api/auctions");
+
+
+            const auctions =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                auctionList.innerHTML =
+                    "Unable to load auctions.";
+
+                return;
+
+            }
+
+
+            if (auctions.length === 0) {
+
+                auctionList.innerHTML =
+                    "No auctions found.";
+
+                return;
+
+            }
+
+
+            auctionList.innerHTML = "";
+
+
+            auctions.forEach(function(auction) {
+
+                const div =
+                    document.createElement("div");
+
+                div.className =
+                    "auction";
+
+
+                div.innerHTML = `
+
+                    <p>
+                        <strong>Auction ID:</strong>
+                        ${auction.id}
+                    </p>
+
+                    <p>
+                        <strong>Product ID:</strong>
+                        ${auction.productId}
+                    </p>
+
+                    <p>
+                        <strong>Seller ID:</strong>
+                        ${auction.sellerId}
+                    </p>
+
+                    <p>
+                        <strong>Starting Price:</strong>
+                        ₹${auction.startingPrice}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        ${auction.status}
+                    </p>
+
+                    <p>
+                        <strong>Start Time:</strong>
+                        ${auction.startTime}
+                    </p>
+
+                    <p>
+                        <strong>End Time:</strong>
+                        ${auction.endTime}
+                    </p>
+
+                `;
+
+
+                auctionList.appendChild(div);
+
+            });
+
+
+        } catch (error) {
+
+            auctionList.innerHTML =
+                "Unable to connect to server.";
+
+            console.error(error);
+
+        }
+
+    }
+
+</script>
+
+</body>
+
+</html>

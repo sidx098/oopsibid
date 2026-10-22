@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>OOPSIBID Product Test</title>
+
+</head>
+
+<body>
+
+<h1>OOPSIBID - Product Test</h1>
+
+<form id="productForm">
+
+    <input
+        type="text"
+        id="name"
+        placeholder="Product Name"
+        required
+    >
+
+    <br><br>
+
+    <textarea
+        id="description"
+        placeholder="Description"
+    ></textarea>
+
+    <br><br>
+
+    <input
+        type="text"
+        id="category"
+        placeholder="Category"
+    >
+
+    <br><br>
+
+    <select id="condition">
+
+        <option value="NEW">New</option>
+
+        <option value="USED">Used</option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Add Product
+    </button>
+
+</form>
+
+<br>
+
+<button onclick="loadProducts()">
+    View Products
+</button>
+
+<pre id="result"></pre>
+
+<script>
+
+document.getElementById("productForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const product = {
+
+        name:
+            document.getElementById("name").value,
+
+        description:
+            document.getElementById("description").value,
+
+        category:
+            document.getElementById("category").value,
+
+        condition:
+            document.getElementById("condition").value,
+
+        images: []
+
+    };
+
+    const response = await fetch(
+        "/api/products",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+
+            body: JSON.stringify(product)
+        }
+    );
+
+    const data = await response.text();
+
+    document.getElementById("result")
+        .innerText = data;
+
+});
+
+
+async function loadProducts() {
+
+    const response = await fetch(
+        "/api/products"
+    );
+
+    const data =
+        await response.json();
+
+    document.getElementById("result")
+        .innerText =
+        JSON.stringify(data, null, 2);
+}
+
+</script>
+
+</body>
+</html>

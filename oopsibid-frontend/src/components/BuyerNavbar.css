@@ -1,0 +1,325 @@
+/* ==========================================
+   BUYER NAVBAR
+========================================== */
+
+.buyer-navbar {
+
+    width: 100%;
+
+    background: #050505;
+
+    border-bottom: 1px solid #1d2b22;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.buyer-navbar-container {
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    height: 72px;
+
+    padding: 0 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.buyer-navbar-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+}
+
+
+.buyer-logo-mark {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #00e676;
+
+    color: #050505;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+}
+
+
+.buyer-logo-text {
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* ==========================================
+   NAV LINKS
+========================================== */
+
+.buyer-navbar-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.buyer-nav-link {
+
+    background: transparent;
+
+    border: none;
+
+    color: #9aa59e;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.buyer-nav-link:hover {
+
+    color: #ffffff;
+
+    background: #101713;
+
+}
+
+
+.buyer-nav-link.active {
+
+    color: #00e676;
+
+    background: #0c1c13;
+
+}
+
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.buyer-navbar-actions {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.buyer-logout-button {
+
+    background: transparent;
+
+    border: 1px solid #28352d;
+
+    color: #d4ddd7;
+
+    padding: 9px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.buyer-logout-button:hover {
+
+    border-color: #00e676;
+
+    color: #00e676;
+
+}
+
+
+/* ==========================================
+   MOBILE BUTTON
+========================================== */
+
+.buyer-mobile-menu {
+
+    display: none;
+
+    background: transparent;
+
+    border: none;
+
+    color: #00e676;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+/* ==========================================
+   MOBILE NAVIGATION
+========================================== */
+
+.buyer-mobile-navigation {
+
+    display: none;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 850px) {
+
+    .buyer-navbar-links,
+    .buyer-navbar-actions {
+
+        display: none;
+
+    }
+
+
+    .buyer-mobile-menu {
+
+        display: block;
+
+    }
+
+
+    .buyer-mobile-navigation {
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding: 12px 24px 20px;
+
+        border-top: 1px solid #18231d;
+
+        background: #050505;
+
+    }
+
+
+    .buyer-mobile-navigation button {
+
+        text-align: left;
+
+        background: transparent;
+
+        border: none;
+
+        color: #b9c4bd;
+
+        padding: 14px 8px;
+
+        font-size: 15px;
+
+        cursor: pointer;
+
+    }
+
+
+    .buyer-mobile-navigation button:hover {
+
+        color: #00e676;
+
+    }
+
+
+    .buyer-mobile-navigation .mobile-logout {
+
+        margin-top: 8px;
+
+        color: #00e676;
+
+        border-top: 1px solid #18231d;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .buyer-navbar-container {
+
+        padding: 0 18px;
+
+    }
+
+
+    .buyer-logo-text {
+
+        font-size: 17px;
+
+    }
+
+}

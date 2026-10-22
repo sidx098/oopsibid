@@ -1,0 +1,611 @@
+/* ==========================================
+   BUYER AUCTIONS PAGE
+========================================== */
+
+.buyer-auctions-page {
+
+    min-height: 100vh;
+
+    background: #050505;
+
+    color: #ffffff;
+
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.buyer-auctions-content {
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 60px 32px 100px;
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.buyer-auctions-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding-bottom: 40px;
+
+    border-bottom: 1px solid #18231d;
+
+}
+
+
+.buyer-auctions-eyebrow {
+
+    color: #00e676;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.buyer-auctions-header h1 {
+
+    font-size: 52px;
+
+    letter-spacing: -2px;
+
+    margin: 12px 0;
+
+}
+
+
+.buyer-auctions-header p {
+
+    color: #858f89;
+
+    margin: 0;
+
+    font-size: 16px;
+
+}
+
+
+.buyer-refresh-button {
+
+    background: transparent;
+
+    color: #b9c3bd;
+
+    border: 1px solid #29352e;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+}
+
+
+.buyer-refresh-button:hover {
+
+    color: #00e676;
+
+    border-color: #00e676;
+
+}
+
+
+/* ==========================================
+   MESSAGE
+========================================== */
+
+.buyer-auctions-message {
+
+    min-height: 300px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: #8a948e;
+
+}
+
+
+.buyer-loader {
+
+    width: 32px;
+
+    height: 32px;
+
+    border: 3px solid #17251c;
+
+    border-top-color: #00e676;
+
+    border-radius: 50%;
+
+    animation: buyer-spin 0.8s linear infinite;
+
+    margin-bottom: 18px;
+
+}
+
+
+@keyframes buyer-spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.buyer-auctions-error {
+
+    margin-top: 40px;
+
+    padding: 25px;
+
+    background: #110807;
+
+    border: 1px solid #42201b;
+
+    border-radius: 8px;
+
+}
+
+
+.buyer-auctions-error strong {
+
+    color: #ff7568;
+
+}
+
+
+.buyer-auctions-error p {
+
+    color: #a89490;
+
+}
+
+
+.buyer-auctions-error button {
+
+    background: transparent;
+
+    color: #00e676;
+
+    border: 1px solid #00e676;
+
+    padding: 9px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+}
+
+
+/* ==========================================
+   EMPTY
+========================================== */
+
+.buyer-auctions-empty {
+
+    min-height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+}
+
+
+.buyer-empty-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #0c1c13;
+
+    color: #00e676;
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.buyer-auctions-empty h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 28px;
+
+}
+
+
+.buyer-auctions-empty p {
+
+    color: #808b84;
+
+    margin-bottom: 25px;
+
+}
+
+
+.buyer-auctions-empty button {
+
+    background: #00e676;
+
+    color: #050505;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+/* ==========================================
+   COUNT
+========================================== */
+
+.buyer-auction-count {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 35px 0 20px;
+
+}
+
+
+.buyer-auction-count span {
+
+    color: #00e676;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.buyer-auction-count strong {
+
+    color: #78847d;
+
+    font-size: 13px;
+
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.buyer-auction-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.buyer-auction-card {
+
+    background: #080b09;
+
+    border: 1px solid #19251e;
+
+    padding: 24px;
+
+    transition: 0.25s ease;
+
+}
+
+
+.buyer-auction-card:hover {
+
+    border-color: #00e676;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* ==========================================
+   CARD TOP
+========================================== */
+
+.buyer-auction-card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+
+}
+
+
+.buyer-auction-card-top > span:first-child {
+
+    color: #647169;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+
+}
+
+
+.buyer-auction-status {
+
+    color: #00e676;
+
+    background: #0b2115;
+
+    padding: 5px 9px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ==========================================
+   PRODUCT
+========================================== */
+
+.buyer-auction-product {
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #17211b;
+
+}
+
+
+.buyer-auction-product small {
+
+    color: #59655e;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.buyer-auction-product h2 {
+
+    margin: 9px 0 0;
+
+    font-size: 18px;
+
+    word-break: break-all;
+
+}
+
+
+/* ==========================================
+   PRICE
+========================================== */
+
+.buyer-auction-price {
+
+    padding: 24px 0;
+
+}
+
+
+.buyer-auction-price span {
+
+    display: block;
+
+    color: #69756e;
+
+    font-size: 11px;
+
+    margin-bottom: 6px;
+
+}
+
+
+.buyer-auction-price strong {
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+}
+
+
+/* ==========================================
+   TIMES
+========================================== */
+
+.buyer-auction-times {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    padding-bottom: 24px;
+
+}
+
+
+.buyer-auction-times small {
+
+    color: #59655e;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.buyer-auction-times p {
+
+    color: #a0aaa4;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.buyer-view-auction-button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    background: #00e676;
+
+    color: #050505;
+
+    border: none;
+
+    border-radius: 7px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+.buyer-view-auction-button:hover {
+
+    background: #19f187;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1050px) {
+
+    .buyer-auction-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .buyer-auctions-content {
+
+        padding: 40px 20px 70px;
+
+    }
+
+
+    .buyer-auctions-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .buyer-auctions-header h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .buyer-auction-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}

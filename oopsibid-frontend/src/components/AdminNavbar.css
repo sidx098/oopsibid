@@ -1,0 +1,253 @@
+.admin-navbar {
+
+    width: 100%;
+
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 0 35px;
+
+    box-sizing: border-box;
+
+    background: #0a0a0a;
+
+    border-bottom: 1px solid #242424;
+
+    color: white;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+.admin-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+}
+
+
+.admin-brand-main {
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.admin-brand-label {
+
+    padding: 4px 8px;
+
+    border: 1px solid #555;
+
+    border-radius: 12px;
+
+    color: #aaa;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.admin-nav-links {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+}
+
+
+.admin-nav-links button {
+
+    padding: 9px 13px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    transition: 0.2s;
+
+}
+
+
+.admin-nav-links button:hover {
+
+    background: #181818;
+
+    color: white;
+
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.admin-nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.admin-profile-button {
+
+    padding: 8px 13px;
+
+    border: 1px solid #333;
+
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: #bbb;
+
+    cursor: pointer;
+
+}
+
+
+.admin-profile-button:hover {
+
+    background: #181818;
+
+    color: white;
+
+}
+
+
+.admin-logout-button {
+
+    padding: 8px 14px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #000;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.admin-logout-button:hover {
+
+    background: #ddd;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .admin-navbar {
+
+        gap: 15px;
+
+        padding: 0 20px;
+
+    }
+
+
+    .admin-nav-links {
+
+        gap: 0;
+
+    }
+
+
+    .admin-nav-links button {
+
+        padding: 8px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .admin-navbar {
+
+        flex-wrap: wrap;
+
+        padding: 15px 20px;
+
+    }
+
+
+    .admin-nav-links {
+
+        order: 3;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+    }
+
+}

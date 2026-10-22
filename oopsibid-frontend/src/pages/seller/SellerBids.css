@@ -1,0 +1,520 @@
+/* ==========================================
+   OOPSIBID - SELLER BIDS
+   BLACK + GREEN STACK STYLE
+========================================== */
+
+.seller-bids-page {
+    min-height: 100vh;
+    background: #0b0f0d;
+    color: #e8f0eb;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.seller-bids-content {
+    width: 92%;
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 50px 0 80px;
+
+    flex: 1;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.seller-bids-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 30px;
+
+    margin-bottom: 40px;
+}
+
+.seller-bids-header > div:first-child span {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #22c55e;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.seller-bids-header h1 {
+    margin: 0;
+
+    color: #f5f7f6;
+
+    font-size: 42px;
+    font-weight: 700;
+
+    letter-spacing: -1px;
+}
+
+.seller-bids-header p {
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    color: #89948d;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   REFRESH BUTTON
+========================================== */
+
+.refresh-bids-button {
+    padding: 11px 20px;
+
+    background: #111713;
+
+    color: #dce7df;
+
+    border: 1px solid #27332c;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.refresh-bids-button:hover {
+    background: #162119;
+
+    border-color: #22c55e;
+
+    color: #22c55e;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.seller-bids-message {
+    min-height: 280px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #101512;
+
+    border: 1px solid #202b24;
+
+    border-radius: 8px;
+
+    color: #8c9891;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.seller-bids-error {
+    padding: 18px 20px;
+
+    background: #17100f;
+
+    border: 1px solid #49201b;
+
+    border-left: 3px solid #ef4444;
+
+    border-radius: 6px;
+
+    color: #f87171;
+
+    font-size: 14px;
+}
+
+.seller-bids-error button {
+    margin-left: 15px;
+
+    padding: 7px 14px;
+
+    background: #171b18;
+
+    color: #dfe8e2;
+
+    border: 1px solid #2c3931;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.seller-bids-error button:hover {
+    border-color: #22c55e;
+
+    color: #22c55e;
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.seller-bids-empty {
+    padding: 80px 25px;
+
+    text-align: center;
+
+    background: #101512;
+
+    border: 1px solid #202b24;
+
+    border-radius: 8px;
+}
+
+.empty-bid-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #245d39;
+
+    border-radius: 50%;
+
+    background: #0d1711;
+
+    color: #22c55e;
+
+    font-size: 23px;
+}
+
+.seller-bids-empty h2 {
+    margin: 0 0 8px;
+
+    color: #f1f5f2;
+
+    font-size: 23px;
+}
+
+.seller-bids-empty p {
+    margin: 0;
+
+    color: #78837c;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   COUNT
+========================================== */
+
+.bids-count {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #202a24;
+}
+
+.bids-count span {
+    color: #66736b;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.bids-count strong {
+    color: #22c55e;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   BIDS GRID
+========================================== */
+
+.seller-bids-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(340px, 1fr));
+
+    gap: 18px;
+}
+
+
+/* ==========================================
+   BID CARD
+========================================== */
+
+.seller-bid-card {
+    position: relative;
+
+    background: #101512;
+
+    border: 1px solid #202b24;
+
+    border-radius: 8px;
+
+    padding: 23px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.seller-bid-card:hover {
+    transform: translateY(-2px);
+
+    background: #121914;
+
+    border-color: #2f6f45;
+}
+
+
+/* ==========================================
+   GREEN TOP LINE
+========================================== */
+
+.seller-bid-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+    left: 18px;
+
+    width: 35px;
+    height: 2px;
+
+    background: #22c55e;
+}
+
+
+/* ==========================================
+   CARD HEADER
+========================================== */
+
+.bid-card-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid #202a24;
+}
+
+.bid-card-header span:first-child {
+    color: #22c55e;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.bid-card-header span:last-child {
+    padding: 5px 10px;
+
+    background: #122017;
+
+    border: 1px solid #21452d;
+
+    border-radius: 5px;
+
+    color: #4ade80;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   BID INFORMATION
+========================================== */
+
+.bid-information {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    margin-top: 22px;
+}
+
+.bid-information div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    min-width: 0;
+}
+
+.bid-information small {
+    color: #657169;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+    text-transform: uppercase;
+}
+
+.bid-information strong {
+    color: #dce5df;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ==========================================
+   BID AMOUNT
+========================================== */
+
+.bid-information .bid-amount strong {
+    color: #22c55e;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   STATUS COLORS
+========================================== */
+
+.bid-status-active {
+    color: #4ade80 !important;
+
+    background: #102017 !important;
+
+    border-color: #245b35 !important;
+}
+
+.bid-status-pending {
+    color: #facc15 !important;
+
+    background: #1b190e !important;
+
+    border-color: #5a4c19 !important;
+}
+
+.bid-status-winning {
+    color: #22c55e !important;
+
+    background: #102418 !important;
+
+    border-color: #286b3d !important;
+}
+
+.bid-status-lost {
+    color: #f87171 !important;
+
+    background: #1c1111 !important;
+
+    border-color: #552323 !important;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .seller-bids-content {
+        width: 94%;
+
+        padding-top: 35px;
+    }
+
+    .seller-bids-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .seller-bids-header h1 {
+        font-size: 34px;
+    }
+
+    .seller-bids-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bid-information {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .seller-bids-header h1 {
+        font-size: 29px;
+    }
+
+    .seller-bids-header p {
+        font-size: 13px;
+    }
+
+    .seller-bid-card {
+        padding: 19px;
+    }
+
+    .bid-information {
+        grid-template-columns: 1fr;
+    }
+
+    .seller-bids-content {
+        width: 92%;
+    }
+}

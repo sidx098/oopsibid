@@ -1,0 +1,225 @@
+.admin-login-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #202020,
+            #050505 60%
+        );
+
+    color: white;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* CARD */
+
+.admin-login-card {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 45px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #292929;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.7);
+
+    box-sizing: border-box;
+}
+
+
+/* HEADER */
+
+.admin-login-header {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.admin-login-header h1 {
+    margin: 12px 0 5px;
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+}
+
+.admin-login-header p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* BADGE */
+
+.admin-badge {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border: 1px solid #555;
+
+    border-radius: 20px;
+
+    color: #ccc;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* FORM */
+
+.admin-form-group {
+    margin-bottom: 22px;
+}
+
+.admin-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.admin-form-group input {
+    width: 100%;
+
+    padding: 13px;
+
+    box-sizing: border-box;
+
+    background: #151515;
+
+    border: 1px solid #333;
+
+    border-radius: 7px;
+
+    color: white;
+
+    outline: none;
+}
+
+.admin-form-group input:focus {
+    border-color: #888;
+}
+
+
+/* ERROR */
+
+.admin-field-error {
+    margin-top: 6px;
+
+    color: #ff6b6b;
+
+    font-size: 12px;
+}
+
+.admin-error {
+    margin-bottom: 20px;
+
+    padding: 12px;
+
+    background: #351414;
+
+    border: 1px solid #642020;
+
+    border-radius: 6px;
+
+    color: #ff7777;
+
+    font-size: 13px;
+}
+
+
+/* BUTTON */
+
+.admin-login-card form button {
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.admin-login-card form button:hover {
+    background: #ddd;
+}
+
+.admin-login-card form button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+/* BACK */
+
+.back-button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 11px;
+
+    border: 1px solid #333;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #161616;
+
+    color: white;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .admin-login-card {
+        padding: 30px 22px;
+    }
+
+}

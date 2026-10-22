@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OOPSIBID - JWT Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 500px;
+            background: #1c1c1c;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00ff88;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            border: 1px solid #444;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #00c96b;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00a957;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #292929;
+            border-radius: 6px;
+            word-break: break-word;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>OOPSIBID</h1>
+
+    <h3>JWT Authentication Test</h3>
+
+    <label>Email</label>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter registered email"
+    >
+
+    <label>Password</label>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter password"
+    >
+
+    <button onclick="login()">
+        Login & Get JWT
+    </button>
+
+    <button onclick="testProtectedAPI()">
+        Test Protected API
+    </button>
+
+    <div id="result">
+        Result will appear here...
+    </div>
+
+</div>
+
+<script>
+
+    let jwtToken = null;
+
+
+    // ==========================
+    // LOGIN
+    // ==========================
+
+    async function login() {
+
+        const email =
+            document.getElementById("email").value;
+
+        const password =
+            document.getElementById("password").value;
+
+        const result =
+            document.getElementById("result");
+
+        try {
+
+            const response = await fetch(
+                "/api/auth/login",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                }
+            );
+
+            const data =
+                await response.text();
+
+            if (response.ok) {
+
+                jwtToken = data;
+
+                result.innerHTML =
+                    "<b>Login successful!</b><br><br>" +
+                    "JWT Token:<br>" +
+                    jwtToken;
+
+            } else {
+
+                result.innerHTML =
+                    "Login failed:<br>" + data;
+            }
+
+        } catch (error) {
+
+            result.innerHTML =
+                "Cannot connect to server.";
+
+            console.error(error);
+        }
+    }
+
+
+    // ==========================
+    // PROTECTED API
+    // ==========================
+
+    async function testProtectedAPI() {
+
+        const result =
+            document.getElementById("result");
+
+        if (!jwtToken) {
+
+            result.innerHTML =
+                "Please login first.";
+
+            return;
+        }
+
+        try {
+
+            const response = await fetch(
+                "/api/test/protected",
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            "Bearer " + jwtToken
+                    }
+                }
+            );
+
+            const data =
+                await response.text();
+
+            if (response.ok) {
+
+                result.innerHTML =
+                    "<b>SUCCESS!</b><br><br>" +
+                    data;
+
+            } else {
+
+                result.innerHTML =
+                    "<b>Request failed</b><br><br>" +
+                    "Status: " +
+                    response.status +
+                    "<br><br>" +
+                    data;
+            }
+
+        } catch (error) {
+
+            result.innerHTML =
+                "Cannot connect to server.";
+
+            console.error(error);
+        }
+    }
+
+</script>
+
+</body>
+</html>

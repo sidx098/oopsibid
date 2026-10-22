@@ -1,0 +1,192 @@
+/* =========================
+   SELLER NAVBAR
+========================= */
+
+.seller-navbar {
+
+    width: 100%;
+
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 45px;
+
+    box-sizing: border-box;
+
+    background: #0b0b0b;
+
+    border-bottom: 1px solid #292929;
+
+    color: white;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.seller-navbar-logo {
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.seller-navbar-logo:hover {
+
+    color: #d5c07c;
+}
+
+
+/* =========================
+   NAVIGATION LINKS
+========================= */
+
+.seller-navbar-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.seller-navbar-links button {
+
+    background: transparent;
+
+    color: #d0d0d0;
+
+    border: none;
+
+    padding: 10px 13px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    transition: 0.2s ease;
+}
+
+
+.seller-navbar-links button:hover {
+
+    background: #151515;
+
+    color: #75dba5;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.seller-navbar-links .seller-logout-button {
+
+    margin-left: 10px;
+
+    padding: 9px 17px;
+
+    background: #173b2a;
+
+    color: #75dba5;
+
+    border: 1px solid #285d42;
+
+    border-radius: 6px;
+
+    font-weight: 600;
+}
+
+
+.seller-navbar-links
+.seller-logout-button:hover {
+
+    background: #205238;
+
+    color: #a0efc0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .seller-navbar {
+
+        padding: 0 25px;
+
+    }
+
+    .seller-navbar-links {
+
+        gap: 2px;
+
+    }
+
+    .seller-navbar-links button {
+
+        padding: 9px 8px;
+
+        font-size: 13px;
+
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .seller-navbar {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding: 18px 20px;
+
+        gap: 15px;
+
+    }
+
+
+    .seller-navbar-links {
+
+        width: 100%;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .seller-navbar-links button {
+
+        font-size: 12px;
+
+    }
+}

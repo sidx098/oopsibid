@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OOPSIBID - Registration Test</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+        }
+
+        .container {
+
+            width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+
+            text-align: center;
+
+            margin-bottom: 5px;
+
+            color: #222;
+        }
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-bottom: 6px;
+
+            font-weight: bold;
+
+            color: #333;
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+        }
+
+        input:focus {
+
+            outline: none;
+
+            border-color: #007bff;
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background: #007bff;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+
+            background: #0056b3;
+        }
+
+        button:disabled {
+
+            background: #999;
+
+            cursor: not-allowed;
+        }
+
+        #result {
+
+            margin-top: 20px;
+
+            padding: 12px;
+
+            border-radius: 5px;
+
+            text-align: center;
+
+            display: none;
+        }
+
+        .success {
+
+            background: #d4edda;
+
+            color: #155724;
+
+            display: block !important;
+        }
+
+        .error {
+
+            background: #f8d7da;
+
+            color: #721c24;
+
+            display: block !important;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <h1>OOPSIBID</h1>
+
+        <p class="subtitle">Registration Test</p>
+
+
+        <form id="registerForm">
+
+            <label for="name">Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="email">Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+			
+			
+			<label for="role">Account Type</label>
+
+			<select id="role" required>
+
+			    <option value="">Select account type</option>
+
+			    <option value="BUYER">Buyer</option>
+
+			    <option value="SELLER">Seller</option>
+
+			</select>
+
+			<br><br>
+
+
+            <button type="submit" id="registerButton">
+
+                Register
+
+            </button>
+
+        </form>
+
+
+        <div id="result"></div>
+
+    </div>
+
+
+    <script>
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const result =
+            document.getElementById("result");
+
+        const registerButton =
+            document.getElementById("registerButton");
+
+
+        registerForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+
+				const userData = {
+
+				    name: name,
+
+				    email: email,
+
+				    password: password,
+
+				    role: document.getElementById("role").value
+
+				};
+
+
+            result.className = "";
+
+            result.style.display = "none";
+
+            registerButton.disabled = true;
+
+            registerButton.innerText = "Registering...";
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/auth/register",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify(userData)
+                    }
+                );
+
+
+                const message = await response.text();
+
+
+                if (response.ok) {
+
+                    result.className = "success";
+
+                    result.innerText = message;
+
+                    registerForm.reset();
+
+                } else {
+
+                    result.className = "error";
+
+                    result.innerText =
+                        "Registration failed: " + message;
+                }
+
+
+            } catch (error) {
+
+                result.className = "error";
+
+                result.innerText =
+                    "Unable to connect to the server.";
+
+                console.error(error);
+
+            }
+
+
+            registerButton.disabled = false;
+
+            registerButton.innerText = "Register";
+
+        });
+
+    </script>
+
+</body>
+
+</html>

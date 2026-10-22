@@ -1,0 +1,315 @@
+.about-page {
+    min-height: 100vh;
+
+    background: #050505;
+
+    color: #fff;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.about-hero {
+    padding: 120px 8% 100px;
+
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.about-hero > span {
+    color: #00ff66;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.about-hero h1 {
+    margin: 20px 0;
+
+    font-size: 70px;
+
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+.about-hero h1 strong {
+    color: #00ff66;
+}
+
+.about-hero p {
+    max-width: 650px;
+
+    color: #999;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   SECTION
+========================================== */
+
+.about-section {
+    width: 84%;
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 100px 0;
+
+    display: grid;
+
+    grid-template-columns: 30% 70%;
+
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.about-section-label {
+    color: #666;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.about-section-content h2 {
+    margin-top: 0;
+
+    font-size: 44px;
+
+    line-height: 1.1;
+}
+
+.about-section-content h2 strong {
+    color: #00ff66;
+}
+
+.about-section-content p {
+    max-width: 700px;
+
+    color: #999;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.about-features {
+    width: 84%;
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 90px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.about-feature {
+    padding: 30px;
+
+    background: #0b0b0b;
+
+    border: 1px solid #202020;
+
+    transition: 0.25s ease;
+}
+
+.about-feature:hover {
+    border-color: #00ff66;
+}
+
+.about-feature > span {
+    color: #00ff66;
+
+    font-weight: 800;
+}
+
+.about-feature h3 {
+    margin: 25px 0 15px;
+
+    font-size: 16px;
+}
+
+.about-feature p {
+    color: #888;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   HOW IT WORKS
+========================================== */
+
+.about-how {
+    padding: 100px 8%;
+
+    background: #080808;
+
+    border-top: 1px solid #1c1c1c;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.about-how > h2 {
+    margin: 20px 0 70px;
+
+    font-size: 52px;
+
+    line-height: 1;
+}
+
+.about-how > h2 strong {
+    color: #00ff66;
+}
+
+.how-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 35px;
+}
+
+.how-grid > div {
+    border-top: 1px solid #333;
+
+    padding-top: 20px;
+}
+
+.how-grid span {
+    color: #00ff66;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.how-grid h3 {
+    margin-top: 25px;
+
+    font-size: 15px;
+}
+
+.how-grid p {
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   FINAL
+========================================== */
+
+.about-final {
+    padding: 120px 8%;
+
+    text-align: center;
+}
+
+.about-final span {
+    color: #00ff66;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+.about-final h2 {
+    margin: 20px 0;
+
+    font-size: 55px;
+}
+
+.about-final h2 strong {
+    color: #00ff66;
+}
+
+.about-final p {
+    color: #888;
+
+    font-size: 17px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .about-hero h1 {
+        font-size: 55px;
+    }
+
+    .about-features,
+    .how-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .about-hero {
+        padding: 80px 7%;
+    }
+
+    .about-hero h1 {
+        font-size: 43px;
+    }
+
+    .about-section {
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .about-section-content h2 {
+        font-size: 35px;
+    }
+
+    .about-features,
+    .how-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-how {
+        padding: 80px 7%;
+    }
+
+    .about-how > h2 {
+        font-size: 40px;
+    }
+
+    .about-final h2 {
+        font-size: 38px;
+    }
+
+}

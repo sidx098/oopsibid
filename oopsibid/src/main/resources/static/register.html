@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>OOPSIBID | Register</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right,
+                rgba(0, 255, 140, 0.12),
+                transparent 35%),
+                #050505;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+
+            background: rgba(15, 15, 15, 0.95);
+
+            border: 1px solid #1aff8c;
+
+            border-radius: 18px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 0 30px rgba(0, 255, 140, 0.12);
+        }
+
+        .logo {
+            text-align: center;
+
+            font-size: 36px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            color: #19ff88;
+
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            text-align: center;
+
+            color: #888;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            font-size: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            background: #0b0b0b;
+
+            border: 1px solid #333;
+
+            border-radius: 8px;
+
+            color: white;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #19ff88;
+
+            box-shadow:
+                0 0 8px rgba(25, 255, 136, 0.15);
+        }
+
+        select option {
+            background: #111;
+
+            color: white;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #19ff88;
+
+            color: #000;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #00e676;
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 0 18px rgba(25, 255, 136, 0.35);
+        }
+
+        .message {
+            margin-top: 18px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            min-height: 20px;
+        }
+
+        .login {
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #888;
+
+            font-size: 14px;
+        }
+
+        .login a {
+            color: #19ff88;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .login a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        OOPSIBID
+    </div>
+
+    <div class="tagline">
+        ONE BID. NO SECOND CHANCES.
+    </div>
+
+
+    <h2>Create Account</h2>
+
+
+    <form id="registerForm">
+
+        <div class="input-group">
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                required>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="role">
+                Register as
+            </label>
+
+            <select id="role" required>
+
+                <option value="">
+                    Select role
+                </option>
+
+                <option value="BUYER">
+                    Buyer
+                </option>
+
+                <option value="SELLER">
+                    Seller
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button type="submit">
+            CREATE ACCOUNT
+        </button>
+
+
+        <div
+            id="message"
+            class="message">
+        </div>
+
+    </form>
+
+
+    <div class="login">
+
+        Already have an account?
+
+        <a href="/login.html">
+            Login
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const role =
+                document.getElementById("role").value;
+
+
+            const message =
+                document.getElementById("message");
+
+
+            message.textContent = "Creating account...";
+            message.style.color = "#aaa";
+
+
+            try {
+
+                const response = await fetch(
+                    "/api/auth/register",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            password: password,
+                            role: role
+                        })
+                    }
+                );
+
+
+                const result =
+                    await response.text();
+
+
+                if (response.ok) {
+
+                    message.textContent =
+                        "✓ " + result;
+
+                    message.style.color =
+                        "#19ff88";
+
+
+                    document
+                        .getElementById("registerForm")
+                        .reset();
+
+                } else {
+
+                    message.textContent =
+                        "✕ " + result;
+
+                    message.style.color =
+                        "#ff5555";
+                }
+
+            } catch (error) {
+
+                message.textContent =
+                    "✕ Cannot connect to OOPSIBID server.";
+
+                message.style.color =
+                    "#ff5555";
+
+                console.error(error);
+            }
+
+        });
+
+</script>
+
+</body>
+
+</html>

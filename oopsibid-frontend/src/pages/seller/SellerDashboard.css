@@ -1,0 +1,667 @@
+/* =========================
+   SELLER DASHBOARD
+========================= */
+
+.seller-dashboard-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(31, 138, 85, 0.12),
+            transparent 30%
+        ),
+        #080b09;
+
+    color: #f4f7f5;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.seller-dashboard-content {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 45px 40px 70px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.seller-hero {
+
+    position: relative;
+
+    min-height: 330px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    padding: 55px;
+
+    border: 1px solid #1c3829;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #0d1711,
+            #0a0e0c 65%
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+.seller-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    right: -160px;
+
+    top: -200px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(70, 190, 120, 0.15);
+}
+
+
+.seller-hero-content {
+
+    max-width: 700px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.seller-eyebrow {
+
+    color: #62d89a;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.seller-hero h1 {
+
+    margin: 12px 0 15px;
+
+    font-size: 52px;
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+}
+
+
+.seller-hero h1 span {
+
+    color: #5ed795;
+}
+
+
+.seller-hero p {
+
+    max-width: 600px;
+
+    margin: 0;
+
+    color: #89958e;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.seller-hero-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+.primary-seller-button,
+.secondary-seller-button {
+
+    padding: 13px 20px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.primary-seller-button {
+
+    background: #39a96b;
+
+    color: #061009;
+
+    border: 1px solid #4ac27e;
+}
+
+
+.primary-seller-button:hover {
+
+    background: #54d98d;
+
+    transform: translateY(-1px);
+}
+
+
+.secondary-seller-button {
+
+    background: transparent;
+
+    color: #d9e6df;
+
+    border: 1px solid #31533f;
+}
+
+
+.secondary-seller-button:hover {
+
+    border-color: #5ac98a;
+
+    color: #69dda0;
+}
+
+
+/* =========================
+   HERO DECORATION
+========================= */
+
+.seller-hero-decoration {
+
+    position: relative;
+
+    width: 260px;
+
+    height: 260px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.seller-glow {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    background: rgba(45, 180, 105, 0.12);
+
+    border-radius: 50%;
+
+    filter: blur(35px);
+}
+
+
+.seller-circle {
+
+    width: 160px;
+
+    height: 160px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #326a4a;
+
+    background: #0d1711;
+
+    box-shadow:
+        0 0 50px rgba(45, 180, 105, 0.12);
+
+    transform: rotate(-8deg);
+}
+
+
+.seller-circle span {
+
+    color: #789084;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+
+.seller-circle strong {
+
+    color: #63d999;
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.seller-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+
+.seller-stat-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background: #0d1210;
+
+    border: 1px solid #1d3025;
+
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+}
+
+
+.seller-stat-card:hover {
+
+    border-color: #326a4a;
+
+    transform: translateY(-2px);
+}
+
+
+.seller-stat-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #12261a;
+
+    color: #5bd592;
+
+    font-size: 20px;
+}
+
+
+.seller-stat-card span {
+
+    display: block;
+
+    color: #7f8c84;
+
+    font-size: 12px;
+
+    margin-bottom: 5px;
+}
+
+
+.seller-stat-card strong {
+
+    font-size: 25px;
+
+    color: #edf6f0;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.seller-section {
+
+    margin-top: 55px;
+}
+
+
+.seller-section-heading span {
+
+    color: #5bd592;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.seller-section-heading h2 {
+
+    margin: 7px 0 25px;
+
+    font-size: 27px;
+}
+
+
+/* =========================
+   ACTION CARDS
+========================= */
+
+.seller-action-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+.seller-action-card {
+
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    background: #0d1210;
+
+    border: 1px solid #1d3025;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.seller-action-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #3d865c;
+
+    background: #101a14;
+}
+
+
+.action-number {
+
+    color: #3d6e50;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.seller-action-card h3 {
+
+    margin: 35px 0 10px;
+
+    font-size: 19px;
+}
+
+
+.seller-action-card p {
+
+    color: #7e8c84;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.seller-action-card span {
+
+    position: absolute;
+
+    bottom: 22px;
+
+    color: #5bd592;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   SELLER TIP
+========================= */
+
+.seller-tip {
+
+    margin-top: 50px;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            110deg,
+            #102319,
+            #0c120e
+        );
+
+    border: 1px solid #244c35;
+
+    border-radius: 14px;
+}
+
+
+.seller-tip span {
+
+    color: #5bd592;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.seller-tip h2 {
+
+    margin: 8px 0;
+
+    font-size: 23px;
+}
+
+
+.seller-tip p {
+
+    max-width: 700px;
+
+    margin: 0;
+
+    color: #89958e;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.tip-arrow {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #183724;
+
+    color: #62d898;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .seller-hero {
+
+        padding: 40px;
+
+    }
+
+    .seller-hero h1 {
+
+        font-size: 42px;
+
+    }
+
+    .seller-hero-decoration {
+
+        display: none;
+
+    }
+
+    .seller-stats,
+    .seller-action-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .seller-dashboard-content {
+
+        padding: 25px 18px 50px;
+
+    }
+
+    .seller-hero {
+
+        padding: 30px 25px;
+
+    }
+
+    .seller-hero h1 {
+
+        font-size: 34px;
+
+    }
+
+    .seller-hero-actions {
+
+        flex-direction: column;
+
+    }
+
+    .seller-stats,
+    .seller-action-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .seller-tip {
+
+        align-items: flex-start;
+
+    }
+
+    .tip-arrow {
+
+        display: none;
+
+    }
+}

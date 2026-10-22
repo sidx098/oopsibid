@@ -1,0 +1,280 @@
+.admin-bids-page {
+    min-height: 100vh;
+    background: #0b0b0b;
+    color: white;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.admin-bids-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 55px 40px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.admin-bids-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.admin-bids-header span {
+    color: #b9a36a;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.admin-bids-header h1 {
+    margin: 8px 0;
+    font-size: 36px;
+}
+
+.admin-bids-header p {
+    margin: 0;
+    color: #888;
+}
+
+
+/* =========================
+   REFRESH BUTTON
+========================= */
+
+.admin-bids-header button {
+    padding: 11px 18px;
+    background: #151515;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-bids-header button:hover {
+    border-color: #b9a36a;
+    color: #b9a36a;
+}
+
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+.bids-table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 12px;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.bids-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+.bids-table-container th,
+.bids-table-container td {
+    padding: 17px 18px;
+    text-align: left;
+    border-bottom: 1px solid #292929;
+}
+
+.bids-table-container th {
+    color: #b9a36a;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bids-table-container td {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.bids-table-container tbody tr:hover {
+    background: #191919;
+}
+
+
+/* =========================
+   BID AMOUNT
+========================= */
+
+.bid-amount {
+    color: #75dba5 !important;
+    font-weight: 700;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.bid-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ACTIVE */
+
+.bid-status.active {
+    background: #173b2a;
+    color: #75dba5;
+}
+
+
+/* BLOCKED */
+
+.bid-status.blocked {
+    background: #401c1c;
+    color: #ff8585;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.bid-actions {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+
+/* =========================
+   BLOCK BUTTON
+========================= */
+
+.block-button {
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+
+    background: #401c1c;
+    color: #ff8585;
+    border: 1px solid #633030;
+}
+
+.block-button:hover {
+    background: #542020;
+}
+
+
+/* =========================
+   UNBLOCK BUTTON
+========================= */
+
+.unblock-button {
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+
+    background: #173b2a;
+    color: #75dba5;
+    border: 1px solid #285d42;
+}
+
+.unblock-button:hover {
+    background: #205238;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.delete-button {
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+
+    background: #151515;
+    color: #ff8585;
+    border: 1px solid #633030;
+}
+
+.delete-button:hover {
+    background: #401c1c;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.bids-message,
+.bids-error {
+    padding: 25px;
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 10px;
+}
+
+.bids-error {
+    color: #ff8585;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty-bids {
+    text-align: center !important;
+    padding: 50px !important;
+    color: #777 !important;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .admin-bids-content {
+        padding: 35px 20px;
+    }
+
+    .admin-bids-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-bids-header h1 {
+        font-size: 29px;
+    }
+
+    .bid-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
